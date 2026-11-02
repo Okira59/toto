@@ -15,6 +15,8 @@ sistem kuponlarını üretir ve geçmiş haftaları sonuçlandırır.
 | `data/kadro.json` | Oyuncu maç/ilk 11 sayıları önbelleği |
 | `data/yorum.json` | Çevrilmiş maç önizlemeleri önbelleği |
 | `data/geo.json` | Stadyum konumları (hava durumu için) |
+| `gol/` | `Okira59/gol` modüllerinin kopyası |
+| `docs/` | Panel (PWA) ve `docs/data/` çıktıları |
 
 ## Kurulum
 ```bash
@@ -23,9 +25,13 @@ pip install -r requirements.txt
 
 ## Çalıştırma
 ```bash
-python toto.py
+python toto.py       # -> docs/data/toto.json, docs/data/gecmis.json
 ```
 
-> Not: `toto.py`, `../gol` klasöründeki `fs_collect.py`, `kupon.py`, `skor.py` modüllerini import eder
-> (`Okira59/gol` deposu). Çalıştırmak için `gol` deposunu bu klasörün yanına (`../gol`) klonlayın.
-> Çıktılar `../docs/toto/data/` klasörüne yazılır (eski depo düzeni: panel `Okira59/Pyhton/docs/toto/`).
+`gol/` klasörü, `Okira59/gol` deposundaki `fs_collect.py`, `kupon.py`, `skor.py`, `leagues.py` modüllerinin kopyasıdır
+(Flashscore/oran çekme, takım adı eşleştirme, skor olasılıkları). `toto.py` bunları buradan import eder.
+
+## Otomatik çalışma ve panel
+- `.github/workflows/toto.yml` her saat tetiklenir, 3 saatte bir gerçekten çalışır (elle: Actions → "Spor Toto Analiz" → Run workflow).
+- Panel (GitHub Pages, `main` dalı `/docs`): https://okira59.github.io/toto/
+- Android uygulaması: `docs/SporTotoAnaliz.apk`.

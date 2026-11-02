@@ -11,7 +11,7 @@ Model: üç sitenin marjı arındırılmış 1/X/2 olasılıklarının ortalamas
 Sakatlık ve hava etkisi aynı testte tahmini iyileştirmedi (oranlar bunları zaten içeriyor), bu yüzden
 modele eklenmez; her maçta uyarı olarak gösterilir.
 Kuponlar: her kolon bütçesi için 15/15 tutma olasılığını en yükselten tek/çift/üçlü dağılımı (tam DP).
-Çıktı: docs/toto/data/toto.json, docs/toto/data/gecmis.json
+Çıktı: docs/data/toto.json, docs/data/gecmis.json
 """
 import json
 import math
@@ -25,12 +25,12 @@ from datetime import datetime, timedelta, timezone
 import requests
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(BASE, "..", "gol"))
+sys.path.insert(0, os.path.join(BASE, "gol"))
 import fs_collect as F  # noqa: E402
 from kupon import _sim  # noqa: E402
 
 TR = timezone(timedelta(hours=3))
-DOCS = os.path.join(BASE, "..", "docs", "toto", "data")
+DOCS = os.path.join(BASE, "docs", "data")
 OUT = os.path.join(DOCS, "toto.json")
 HIST = os.path.join(DOCS, "gecmis.json")
 STATE = os.path.join(BASE, "data", "state.json")
