@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Geçici dosyalar (scriptler önce *.tmp yazıp sonra asıl dosyanın üzerine taşır)
+*.tmp
+data/*.tmp
+data/*.log
+
+# Editör / işletim sistemi
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Not: data/*.json (state, kadro, yorum, geo) scriptin kalıcı önbelleği/durumudur, git'te tutulur.
